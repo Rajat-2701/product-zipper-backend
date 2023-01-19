@@ -29,6 +29,7 @@ const registerUser = asyncHandler(async (req, res) => {
     res.send({ message: 'User already exists with this email.' });
   } else {
     const pic = req.cloudnaryFiles;
+    console.log(pic);
     const user = await User.create({
       name,
       email,
