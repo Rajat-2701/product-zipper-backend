@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-const bcrypt = require("bcryptjs");
+const bcrypt = require('bcryptjs');
 
 const userSchema = mongoose.Schema(
   {
@@ -25,18 +25,29 @@ const userSchema = mongoose.Schema(
     role: {
       type: String,
       required: false,
-      default: "User",
+      default: 'User',
     },
     pic: {
       type: Object,
       default:
-        "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
+        'https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg',
+      required: false,
+    },
+    otp: {
+      type: String,
+    },
+    isOtpVerified: {
+      type: String,
+      default: '0',
+    },
+    token: {
+      type: String,
     },
   },
   {
     timestamps: true,
-  }
+  },
 );
-const User = mongoose.model("users", userSchema);
+const User = mongoose.model('users', userSchema);
 
 module.exports = User;
